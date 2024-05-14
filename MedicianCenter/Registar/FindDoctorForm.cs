@@ -28,8 +28,9 @@ namespace MedicianCenter.Registar
         {
             using (Database.Model.Context db = new Database.Model.Context())
             {
-                DoctorsDataGridView.DataSource = await db.doctor
+                DoctorsDataGridView.DataSource = await db.doctors
                     .Include(x => x.istoria_priemov)
+                    .Include(x => x.Users)
                     .ToListAsync();
 
                 DoctorsDataGridView.Columns["ID_doctor"].Visible = false;
@@ -41,6 +42,7 @@ namespace MedicianCenter.Registar
                 DoctorsDataGridView.Columns["work_number"].HeaderText = "Рабочий телефон";
                 DoctorsDataGridView.Columns["specialization"].HeaderText = "Специализация";
                 DoctorsDataGridView.Columns["istoria_priemov"].Visible = false;
+                DoctorsDataGridView.Columns["Users"].Visible = false;
 
                 DoctorsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }

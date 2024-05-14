@@ -19,68 +19,46 @@ namespace MedicianCenter.Registar
         {
             InitializeComponent();
             UpdateHistoryDataGrid();
-            UpdateMedCardsDataGrid();
         }
 
         private async void UpdateHistoryDataGrid()
         {
             using (Database.Model.Context db = new Database.Model.Context())
             {
-                var history = await db.istoria_priemov
-                    .Include(x => x.doctor)
-                    .Include(x => x.healing)
-                    .Include(x => x.med_card)
-                    .ToListAsync();
+                var history = await db.visit_history.ToListAsync();
 
                 HistoryDataGridView.DataSource = history;
 
+                HistoryDataGridView.Columns["ID_doctor"].Visible = false;
+                HistoryDataGridView.Columns["Expr1"].HeaderText = "Фамилия";
+                HistoryDataGridView.Columns["Expr2"].HeaderText = "Имя";
+                HistoryDataGridView.Columns["Expr3"].HeaderText = "Отчество";
+                HistoryDataGridView.Columns["surname"].Visible = false;
+                HistoryDataGridView.Columns["middle_name"].Visible = false;
+                HistoryDataGridView.Columns["name"].Visible = false;
+                HistoryDataGridView.Columns["cabinet"].Visible = false;
+                HistoryDataGridView.Columns["work_number"].Visible = false;
+                HistoryDataGridView.Columns["specialization"].Visible = false;
                 HistoryDataGridView.Columns["ID_istoria_priemov"].Visible = false;
                 HistoryDataGridView.Columns["disease"].HeaderText = "Болезнь";
                 HistoryDataGridView.Columns["date_of_priem"].HeaderText = "Дата приема";
                 HistoryDataGridView.Columns["time"].HeaderText = "Время";
-                HistoryDataGridView.Columns["status"].HeaderText = "Статус";
+                HistoryDataGridView.Columns["status"].Visible = false;
                 HistoryDataGridView.Columns["ID_med_card"].Visible = false;
-                HistoryDataGridView.Columns["ID_healing"].Visible = false;
-                HistoryDataGridView.Columns["ID_doctor"].Visible = false;
-                HistoryDataGridView.Columns["doctor"].Visible = false;
-                HistoryDataGridView.Columns["healing"].Visible = false;
-                HistoryDataGridView.Columns["med_card"].Visible = false;
+                HistoryDataGridView.Columns["date_of_birth"].Visible = false;
+                HistoryDataGridView.Columns["phone_number"].Visible = false;
+                HistoryDataGridView.Columns["number_passport"].Visible = false;
+                HistoryDataGridView.Columns["snils"].Visible = false;
+                HistoryDataGridView.Columns["seria_passport"].Visible = false;
+                HistoryDataGridView.Columns["place_of_residence"].Visible = false;
+                HistoryDataGridView.Columns["settlenment"].Visible = false;
+                HistoryDataGridView.Columns["street"].Visible = false;
+                HistoryDataGridView.Columns["number_house"].Visible = false;
+                HistoryDataGridView.Columns["number_room"].Visible = false;
+                HistoryDataGridView.Columns["profession"].Visible = false;
+
 
                 HistoryDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
-        }
-
-        private async void UpdateMedCardsDataGrid()
-        {
-            using (Database.Model.Context db = new Database.Model.Context())
-            {
-                var medCards = await db.med_card
-                    .Include(x => x.med_card_contra)
-                    .Include(x => x.istoria_priemov)
-                    .ToListAsync();
-
-                MedCardsDataGridView.DataSource = medCards;
-
-                MedCardsDataGridView.Columns["ID_med_card"].Visible = false;
-                MedCardsDataGridView.Columns["surname"].HeaderText = "Фамилия";
-                MedCardsDataGridView.Columns["name"].HeaderText = "Имя";
-                MedCardsDataGridView.Columns["middle_name"].HeaderText = "Отчетство";
-                MedCardsDataGridView.Columns["date_of_birth"].HeaderText = "Дата рождения";
-                MedCardsDataGridView.Columns["phone_number"].HeaderText = "Номер телефона";
-                MedCardsDataGridView.Columns["number_passport"].HeaderText = "Номер паспорта";
-                MedCardsDataGridView.Columns["seria_passport"].HeaderText = "Серия паспорта";
-                MedCardsDataGridView.Columns["snils"].HeaderText = "СНИЛС";
-                MedCardsDataGridView.Columns["place_of_residence"].HeaderText = "Регион";
-                MedCardsDataGridView.Columns["settlenment"].HeaderText = "Город";
-                MedCardsDataGridView.Columns["street"].HeaderText = "Улица";
-                MedCardsDataGridView.Columns["number_house"].HeaderText = "Номер дома";
-                MedCardsDataGridView.Columns["number_room"].HeaderText = "Квартира";
-                MedCardsDataGridView.Columns["profession"].HeaderText = "Профессия";
-                MedCardsDataGridView.Columns["healing_list_pills"].Visible = false;
-                MedCardsDataGridView.Columns["istoria_priemov"].Visible = false;
-                MedCardsDataGridView.Columns["med_card_contra"].Visible = false;
-
-                MedCardsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,13 @@ namespace MedicianCenter.LabAssistant
         private void AddTestResultForm_Load(object sender, EventArgs e)
         {
             UpdateTestResultsDataGridView();
+            UpdateTemplatesComboBox();
         }
 
         private void UpdateTestResultsDataGridView()
         {
             using (Database.Model.Context db = new Database.Model.Context())
-                TestResultsDataGridView.DataSource = db.TestResult
+                TestResultsDataGridView.DataSource = db.TestResults
                     .Where(x => x.TestId == test.ID_list_tests)
                     .ToList();
 
@@ -36,6 +38,7 @@ namespace MedicianCenter.LabAssistant
             TestResultsDataGridView.Columns["Key"].HeaderText = "Название";
             TestResultsDataGridView.Columns["Value"].HeaderText = "Значение";
             TestResultsDataGridView.Columns["TestId"].Visible = false;
+            TestResultsDataGridView.Columns["templateID"].Visible = false;
 
             TestResultsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -46,10 +49,11 @@ namespace MedicianCenter.LabAssistant
             testResult.Key = KeyTextBox.Text;
             testResult.Value = ValueTextBox.Text;
             testResult.TestId = test.ID_list_tests;
+            testResult.TemplateId = (TemplateComboBox.SelectedItem as Template).Id;
 
             using (Database.Model.Context db = new Context())
             {
-                db.TestResult.Add(testResult);
+                db.TestResults.Add(testResult);
                 db.SaveChanges();
             }
 
@@ -71,7 +75,7 @@ namespace MedicianCenter.LabAssistant
                         // Удалить результат
                         using (Database.Model.Context db = new Database.Model.Context())
                         {
-                            db.TestResult.Remove(db.TestResult.Find(TestResultsDataGridView.Rows[currentMouseOverRow].Cells["id"].Value));
+                            db.TestResults.Remove(db.TestResults.Find(TestResultsDataGridView.Rows[currentMouseOverRow].Cells["id"].Value));
                             db.SaveChangesAsync();
                             UpdateTestResultsDataGridView();
                         }
@@ -80,6 +84,30 @@ namespace MedicianCenter.LabAssistant
 
                 m.Show(TestResultsDataGridView, new Point(e.X, e.Y));
             }
+        }
+
+        private void AddTemplateButton_Click(object sender, EventArgs e)
+        {
+            using (Context db = new Context())
+            {
+                Template template = new Template();
+                template.Name = TemplateNameTextBox.Text;
+                template.Minimum = TemplateMinimumTextBox.Text;
+                template.Maximum = TemplateMaximumTextBox.Text;
+
+                db.Templates.Add(template);
+                db.SaveChanges();
+            }
+
+            UpdateTemplatesComboBox();
+        }
+
+        private void UpdateTemplatesComboBox()
+        {
+            using (Context db = new Context())
+                TemplateComboBox.DataSource = db.Templates
+                    .ToList();
+            TemplateComboBox.DisplayMember = "Name";
         }
     }
 }

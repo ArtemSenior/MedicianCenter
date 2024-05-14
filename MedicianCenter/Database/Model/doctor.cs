@@ -13,6 +13,7 @@ namespace MedicianCenter.Database.Model
         public doctor()
         {
             istoria_priemov = new HashSet<istoria_priemov>();
+            Users = new HashSet<User>();
         }
 
         [Key]
@@ -40,5 +41,8 @@ namespace MedicianCenter.Database.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<istoria_priemov> istoria_priemov { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }

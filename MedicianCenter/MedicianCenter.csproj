@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,6 +41,9 @@
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="QuestPDF, Version=2024.3.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuestPDF.2024.3.4\lib\netstandard2.0\QuestPDF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -105,7 +109,11 @@
     <Compile Include="Database\Model\list_tests.cs" />
     <Compile Include="Database\Model\med_card.cs" />
     <Compile Include="Database\Model\med_card_contra.cs" />
+    <Compile Include="Database\Model\registar_visits.cs" />
+    <Compile Include="Database\Model\Template.cs" />
     <Compile Include="Database\Model\TestResult.cs" />
+    <Compile Include="Database\Model\User.cs" />
+    <Compile Include="Database\Model\visit_history.cs" />
     <Compile Include="Doctor\AddTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,4 +250,11 @@
     <None Include="Resources\shtamp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\QuestPDF.2024.3.4\build\net4\QuestPDF.targets" Condition="Exists('..\packages\QuestPDF.2024.3.4\build\net4\QuestPDF.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\QuestPDF.2024.3.4\build\net4\QuestPDF.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\QuestPDF.2024.3.4\build\net4\QuestPDF.targets'))" />
+  </Target>
 </Project>

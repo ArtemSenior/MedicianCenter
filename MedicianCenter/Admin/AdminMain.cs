@@ -30,7 +30,7 @@ namespace MedicianCenter.Admin
         private async void UpdateDoctorsDataGridView()
         {
             using (Database.Model.Context db = new Database.Model.Context())
-                DoctorsDataGridView.DataSource = await db.doctor.Include(x => x.istoria_priemov).ToListAsync();
+                DoctorsDataGridView.DataSource = await db.doctors.Include(x => x.istoria_priemov).ToListAsync();
 
             DoctorsDataGridView.Columns["ID_doctor"].Visible = false;
             DoctorsDataGridView.Columns["surname"].HeaderText = "Фамилия";
@@ -41,6 +41,7 @@ namespace MedicianCenter.Admin
             DoctorsDataGridView.Columns["work_number"].HeaderText = "Рабочий телефон";
             DoctorsDataGridView.Columns["specialization"].HeaderText = "Специализация";
             DoctorsDataGridView.Columns["istoria_priemov"].Visible = false;
+            DoctorsDataGridView.Columns["Users"].Visible = false;
 
             DoctorsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -54,6 +55,7 @@ namespace MedicianCenter.Admin
             TestDataGridView.Columns["name"].HeaderText = "Название";
             TestDataGridView.Columns["opisanie"].HeaderText = "Описание";
             TestDataGridView.Columns["ID_med_card"].Visible = false;
+            TestDataGridView.Columns["med_card"].Visible = false;
 
             TestDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -98,6 +100,7 @@ namespace MedicianCenter.Admin
             MedCardsDataGridView.Columns["healing_list_pills"].Visible = false;
             MedCardsDataGridView.Columns["istoria_priemov"].Visible = false;
             MedCardsDataGridView.Columns["med_card_contra"].Visible = false;
+            MedCardsDataGridView.Columns["list_tests"].Visible = false;
 
             MedCardsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -147,7 +150,7 @@ namespace MedicianCenter.Admin
                         // Изменить доктора
                         using (Database.Model.Context db = new Database.Model.Context())
                         {
-                            doctor cDoc = db.doctor.Find(DoctorsDataGridView.Rows[currentMouseOverRow].Cells["ID_doctor"].Value);
+                            doctor cDoc = db.doctors.Find(DoctorsDataGridView.Rows[currentMouseOverRow].Cells["ID_doctor"].Value);
                             AddDoctorForm adf = new AddDoctorForm(cDoc);
                             adf.FormClosed += Adf_FormClosed;
                             adf.ShowDialog();
@@ -158,8 +161,8 @@ namespace MedicianCenter.Admin
                         // Удалить доктора
                         using (Database.Model.Context db = new Context())
                         {
-                            var rDoc = db.doctor.Find(DoctorsDataGridView.Rows[currentMouseOverRow].Cells["ID_doctor"].Value);
-                            db.doctor.Remove(rDoc);
+                            var rDoc = db.doctors.Find(DoctorsDataGridView.Rows[currentMouseOverRow].Cells["ID_doctor"].Value);
+                            db.doctors.Remove(rDoc);
                             db.SaveChanges();
                         }
 

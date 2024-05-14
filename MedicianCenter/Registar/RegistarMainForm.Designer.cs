@@ -34,15 +34,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.HistoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.MedCardsDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HistoryDataGridView)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MedCardsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,7 +72,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -92,7 +87,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(708, 398);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "История приемов";
+            this.tabPage1.Text = "Приемы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // HistoryDataGridView
@@ -106,28 +101,6 @@
             this.HistoryDataGridView.Size = new System.Drawing.Size(702, 392);
             this.HistoryDataGridView.TabIndex = 0;
             this.HistoryDataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.HistoryDataGridView_MouseClick);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.MedCardsDataGridView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(708, 398);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Медицинские карты";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // MedCardsDataGridView
-            // 
-            this.MedCardsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.MedCardsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MedCardsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MedCardsDataGridView.Location = new System.Drawing.Point(3, 3);
-            this.MedCardsDataGridView.Name = "MedCardsDataGridView";
-            this.MedCardsDataGridView.ReadOnly = true;
-            this.MedCardsDataGridView.Size = new System.Drawing.Size(702, 392);
-            this.MedCardsDataGridView.TabIndex = 0;
             // 
             // RegistarMainForm
             // 
@@ -144,8 +117,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.HistoryDataGridView)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MedCardsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -157,8 +128,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView HistoryDataGridView;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView MedCardsDataGridView;
         private System.Windows.Forms.Button AddHistoryButton;
     }
 }

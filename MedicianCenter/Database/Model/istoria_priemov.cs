@@ -8,6 +8,12 @@ namespace MedicianCenter.Database.Model
 
     public partial class istoria_priemov
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public istoria_priemov()
+        {
+            istoria_priemov1 = new HashSet<istoria_priemov>();
+        }
+
         [Key]
         public int ID_istoria_priemov { get; set; }
 
@@ -32,10 +38,17 @@ namespace MedicianCenter.Database.Model
 
         public int ID_doctor { get; set; }
 
+        public int? ID_istoria_priemov_redirect { get; set; }
+
         public virtual doctor doctor { get; set; }
 
         public virtual healing healing { get; set; }
 
         public virtual med_card med_card { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<istoria_priemov> istoria_priemov1 { get; set; }
+
+        public virtual istoria_priemov istoria_priemov2 { get; set; }
     }
 }

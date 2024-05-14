@@ -55,7 +55,7 @@ namespace MedicianCenter.Admin
 
                 using (Database.Model.Context db = new Database.Model.Context())
                 {
-                    db.doctor.Add(nDoctor);
+                    db.doctors.Add(nDoctor);
                     db.SaveChanges();
                 }
 
@@ -65,7 +65,7 @@ namespace MedicianCenter.Admin
             {
                 using (Database.Model.Context db = new Context())
                 {
-                    var cDoc = db.doctor.Find(doctor.ID_doctor);
+                    var cDoc = db.doctors.Find(doctor.ID_doctor);
                     cDoc.specialization = SpecializationTextBox.Text;
                     cDoc.work_number = WorkPhoneMaskedTextBox.Text;
                     cDoc.name = NameTextBox.Text;

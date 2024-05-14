@@ -17,6 +17,8 @@ namespace MedicianCenter.Database.Model
 
         public string opisanie { get; set; }
 
-        public int? ID_med_card { get; set; }
+        public int ID_med_card { get; set; }
+
+        public virtual med_card med_card { get; set; }
     }
 }

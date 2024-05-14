@@ -13,6 +13,7 @@ namespace MedicianCenter.Database.Model
         {
             healing_list_pills = new HashSet<healing_list_pills>();
             istoria_priemov = new HashSet<istoria_priemov>();
+            list_tests = new HashSet<list_tests>();
             med_card_contra = new HashSet<med_card_contra>();
         }
 
@@ -66,6 +67,9 @@ namespace MedicianCenter.Database.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<istoria_priemov> istoria_priemov { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<list_tests> list_tests { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<med_card_contra> med_card_contra { get; set; }

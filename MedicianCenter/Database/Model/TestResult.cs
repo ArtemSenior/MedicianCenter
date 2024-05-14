@@ -18,5 +18,7 @@ namespace MedicianCenter.Database.Model
         public string Value { get; set; }
 
         public int TestId { get; set; }
+
+        public int? TemplateId { get; set; }
     }
 }

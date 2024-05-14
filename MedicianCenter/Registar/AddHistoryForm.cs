@@ -35,7 +35,7 @@ namespace MedicianCenter.Registar
             {
                 using (Context db = new Context())
                 {
-                    var doc = db.doctor
+                    var doc = db.doctors
                         .Find(ip.ID_doctor);
                     selectedDoctorId = doc.ID_doctor;
 

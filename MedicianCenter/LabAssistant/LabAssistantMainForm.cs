@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,12 +28,15 @@ namespace MedicianCenter.LabAssistant
         private void UpdateTestsDataGridView()
         {
             using (Database.Model.Context db = new Database.Model.Context())
-                TestsDataGridView.DataSource = db.list_tests.ToList();
+                TestsDataGridView.DataSource = db.list_tests
+                    .Include(x => x.med_card)
+                    .ToList();
 
             TestsDataGridView.Columns["ID_list_tests"].Visible = false;
             TestsDataGridView.Columns["name"].HeaderText = "Название";
             TestsDataGridView.Columns["opisanie"].HeaderText = "Описание";
             TestsDataGridView.Columns["ID_med_card"].Visible = false;
+            TestsDataGridView.Columns["med_card"].Visible = false;
 
             TestsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }

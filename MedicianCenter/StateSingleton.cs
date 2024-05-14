@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicianCenter.Database.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace MedicianCenter
         public AuthState authState { get; set; }
         public string connectionString { get; set; }
         public AuthForm authForm { get; set; }
+        public doctor authDoc { get; set; }
 
         private StateSingleton()
         { 

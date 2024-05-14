@@ -29,6 +29,7 @@ namespace MedicianCenter.Doctor
             ResultsDataGridView.Columns["Key"].HeaderText = "Название";
             ResultsDataGridView.Columns["Value"].HeaderText = "Результат";
             ResultsDataGridView.Columns["TestId"].Visible = false;
+            ResultsDataGridView.Columns["TemplateID"].Visible = false;
         }
 
         private void UpdateTestsComboBox()
@@ -51,7 +52,7 @@ namespace MedicianCenter.Doctor
             using (Database.Model.Context db = new Context())
             {
                 var results =
-                    db.TestResult
+                    db.TestResults
                     .Where(x => x.TestId == test.ID_list_tests)
                     .ToList();
 

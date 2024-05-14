@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicianCenter.Database.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,6 +52,7 @@ namespace MedicianCenter
                     break;
                 case AuthState.Doctor:
                     Doctor.DoctorMainForm dmf = new Doctor.DoctorMainForm();
+                    StateSingleton.getInstance().authDoc = GetAuthorizedDoctor();
                     this.Hide();
                     dmf.Show();
                     break;
@@ -73,6 +75,15 @@ namespace MedicianCenter
                     break;
             }
 
+        }
+
+        private doctor GetAuthorizedDoctor()
+        {
+            using (Context db = new Context())
+                return db.Users
+                    .Where(x => x.server_login == UsernameTextBox.Text)
+                    .Select(x => x.doctor)
+                    .FirstOrDefault();
         }
     }
 }
