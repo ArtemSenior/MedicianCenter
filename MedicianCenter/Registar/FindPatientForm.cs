@@ -50,7 +50,6 @@ namespace MedicianCenter.Registar
                 MedCardsDataGridView.Columns["healing_list_pills"].Visible = false;
                 MedCardsDataGridView.Columns["istoria_priemov"].Visible = false;
                 MedCardsDataGridView.Columns["med_card_contra"].Visible = false;
-                MedCardsDataGridView.Columns["list_tests"].Visible = false;
 
                 MedCardsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }

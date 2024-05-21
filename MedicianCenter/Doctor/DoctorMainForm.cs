@@ -38,38 +38,6 @@ namespace MedicianCenter.Doctor
                     .Where(x => x.ID_doctor == curDocID
                     && x.date_of_priem > DateTime.Now)
                     .ToList();
-
-                FutureVisitsDataGridView.Columns["ID_doctor"].Visible = false;
-                FutureVisitsDataGridView.Columns["Expr1"].HeaderText = "Фамилия";
-                FutureVisitsDataGridView.Columns["Expr2"].HeaderText = "Имя";
-                FutureVisitsDataGridView.Columns["Expr3"].HeaderText = "Отчество";
-                FutureVisitsDataGridView.Columns["surname"].Visible = false;
-                FutureVisitsDataGridView.Columns["middle_name"].Visible = false;
-                FutureVisitsDataGridView.Columns["name"].Visible = false;
-                FutureVisitsDataGridView.Columns["cabinet"].Visible = false;
-                FutureVisitsDataGridView.Columns["work_number"].Visible = false;
-                FutureVisitsDataGridView.Columns["specialization"].Visible = false;
-                FutureVisitsDataGridView.Columns["ID_istoria_priemov"].Visible = false;
-                FutureVisitsDataGridView.Columns["disease"].HeaderText = "Болезнь";
-                FutureVisitsDataGridView.Columns["date_of_priem"].HeaderText = "Дата приема";
-                FutureVisitsDataGridView.Columns["time"].HeaderText = "Время";
-                FutureVisitsDataGridView.Columns["status"].Visible = false;
-                FutureVisitsDataGridView.Columns["ID_med_card"].Visible = false;
-                FutureVisitsDataGridView.Columns["date_of_birth"].Visible = false;
-                FutureVisitsDataGridView.Columns["phone_number"].Visible = false;
-                FutureVisitsDataGridView.Columns["number_passport"].Visible = false;
-                FutureVisitsDataGridView.Columns["snils"].Visible = false;
-                FutureVisitsDataGridView.Columns["seria_passport"].Visible = false;
-                FutureVisitsDataGridView.Columns["place_of_residence"].Visible = false;
-                FutureVisitsDataGridView.Columns["settlenment"].Visible = false;
-                FutureVisitsDataGridView.Columns["street"].Visible = false;
-                FutureVisitsDataGridView.Columns["number_house"].Visible = false;
-                FutureVisitsDataGridView.Columns["number_room"].Visible = false;
-                FutureVisitsDataGridView.Columns["profession"].Visible = false;
-
-
-                FutureVisitsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
             }
         }
 
