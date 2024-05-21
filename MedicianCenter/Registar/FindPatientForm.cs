@@ -41,15 +41,16 @@ namespace MedicianCenter.Registar
                 MedCardsDataGridView.Columns["number_passport"].HeaderText = "Номер паспорта";
                 MedCardsDataGridView.Columns["seria_passport"].HeaderText = "Серия паспорта";
                 MedCardsDataGridView.Columns["snils"].HeaderText = "СНИЛС";
-                MedCardsDataGridView.Columns["place_of_residence"].Visible = false;
-                MedCardsDataGridView.Columns["settlenment"].Visible = false;
-                MedCardsDataGridView.Columns["street"].Visible = false;
-                MedCardsDataGridView.Columns["number_house"].Visible = false;
-                MedCardsDataGridView.Columns["number_room"].Visible = false;
-                MedCardsDataGridView.Columns["profession"].Visible = false;
+                MedCardsDataGridView.Columns["place_of_residence"].HeaderText = "Регион";
+                MedCardsDataGridView.Columns["settlenment"].HeaderText = "Город";
+                MedCardsDataGridView.Columns["street"].HeaderText = "Улица";
+                MedCardsDataGridView.Columns["number_house"].HeaderText = "Номер дома";
+                MedCardsDataGridView.Columns["number_room"].HeaderText = "Квартира";
+                MedCardsDataGridView.Columns["profession"].HeaderText = "Профессия";
                 MedCardsDataGridView.Columns["healing_list_pills"].Visible = false;
                 MedCardsDataGridView.Columns["istoria_priemov"].Visible = false;
                 MedCardsDataGridView.Columns["med_card_contra"].Visible = false;
+                MedCardsDataGridView.Columns["list_tests"].Visible = false;
 
                 MedCardsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }

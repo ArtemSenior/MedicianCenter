@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,8 +29,10 @@ namespace MedicianCenter.Doctor
             ResultsDataGridView.Columns["Id"].Visible = false;
             ResultsDataGridView.Columns["Key"].HeaderText = "Название";
             ResultsDataGridView.Columns["Value"].HeaderText = "Результат";
+            ResultsDataGridView.Columns["list_tests"].Visible = false;
+            ResultsDataGridView.Columns["Template"].Visible = false;
             ResultsDataGridView.Columns["TestId"].Visible = false;
-            ResultsDataGridView.Columns["TemplateID"].Visible = false;
+            ResultsDataGridView.Columns["TemplateId"].Visible = false;
         }
 
         private void UpdateTestsComboBox()

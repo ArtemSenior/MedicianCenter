@@ -43,7 +43,7 @@ namespace MedicianCenter.Registar
                 HistoryDataGridView.Columns["disease"].HeaderText = "Болезнь";
                 HistoryDataGridView.Columns["date_of_priem"].HeaderText = "Дата приема";
                 HistoryDataGridView.Columns["time"].HeaderText = "Время";
-                HistoryDataGridView.Columns["status"].Visible = false;
+                HistoryDataGridView.Columns["status"].HeaderText = "Статус";
                 HistoryDataGridView.Columns["ID_med_card"].Visible = false;
                 HistoryDataGridView.Columns["date_of_birth"].Visible = false;
                 HistoryDataGridView.Columns["phone_number"].Visible = false;

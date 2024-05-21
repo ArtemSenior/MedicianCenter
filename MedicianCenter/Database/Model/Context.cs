@@ -116,6 +116,12 @@ namespace MedicianCenter.Database.Model
                 .Property(e => e.opisanie)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<list_tests>()
+                .HasMany(e => e.TestResults)
+                .WithRequired(e => e.list_tests)
+                .HasForeignKey(e => e.TestId)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<med_card>()
                 .Property(e => e.surname)
                 .IsUnicode(false);
@@ -191,6 +197,11 @@ namespace MedicianCenter.Database.Model
             modelBuilder.Entity<Template>()
                 .Property(e => e.Maximum)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Template>()
+                .HasMany(e => e.TestResults)
+                .WithRequired(e => e.Template)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.server_login)

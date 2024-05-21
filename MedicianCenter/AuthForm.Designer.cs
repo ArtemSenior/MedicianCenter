@@ -32,6 +32,8 @@
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.AuthButton = new System.Windows.Forms.Button();
             this.AuthLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // UsernameTextBox
@@ -54,10 +56,10 @@
             // 
             // AuthButton
             // 
-            this.AuthButton.Location = new System.Drawing.Point(159, 261);
+            this.AuthButton.Location = new System.Drawing.Point(75, 232);
             this.AuthButton.Margin = new System.Windows.Forms.Padding(4);
             this.AuthButton.Name = "AuthButton";
-            this.AuthButton.Size = new System.Drawing.Size(100, 28);
+            this.AuthButton.Size = new System.Drawing.Size(269, 44);
             this.AuthButton.TabIndex = 2;
             this.AuthButton.Text = "Войти";
             this.AuthButton.UseVisualStyleBackColor = true;
@@ -67,18 +69,40 @@
             // 
             this.AuthLabel.AutoSize = true;
             this.AuthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AuthLabel.Location = new System.Drawing.Point(53, 69);
+            this.AuthLabel.Location = new System.Drawing.Point(66, 55);
             this.AuthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AuthLabel.Name = "AuthLabel";
             this.AuthLabel.Size = new System.Drawing.Size(287, 52);
             this.AuthLabel.TabIndex = 3;
             this.AuthLabel.Text = "Авторизация";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 135);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Логин:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(72, 182);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Пароль:";
+            // 
             // AuthForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 404);
+            this.ClientSize = new System.Drawing.Size(422, 383);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.AuthLabel);
             this.Controls.Add(this.AuthButton);
             this.Controls.Add(this.PasswordTextBox);
@@ -100,6 +124,8 @@
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button AuthButton;
         private System.Windows.Forms.Label AuthLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

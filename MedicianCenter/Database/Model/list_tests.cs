@@ -8,6 +8,12 @@ namespace MedicianCenter.Database.Model
 
     public partial class list_tests
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public list_tests()
+        {
+            TestResults = new HashSet<TestResult>();
+        }
+
         [Key]
         public int ID_list_tests { get; set; }
 
@@ -20,5 +26,8 @@ namespace MedicianCenter.Database.Model
         public int ID_med_card { get; set; }
 
         public virtual med_card med_card { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TestResult> TestResults { get; set; }
     }
 }

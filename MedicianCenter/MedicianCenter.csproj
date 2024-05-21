@@ -126,6 +126,18 @@
     <Compile Include="Doctor\DoctorMainForm.Designer.cs">
       <DependentUpon>DoctorMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\NextVisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\NextVisitForm.Designer.cs">
+      <DependentUpon>NextVisitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\RedirectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\RedirectForm.Designer.cs">
+      <DependentUpon>RedirectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\SelectPillsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +209,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorMainForm.resx">
       <DependentUpon>DoctorMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\NextVisitForm.resx">
+      <DependentUpon>NextVisitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\RedirectForm.resx">
+      <DependentUpon>RedirectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\SelectPillsForm.resx">
       <DependentUpon>SelectPillsForm.cs</DependentUpon>

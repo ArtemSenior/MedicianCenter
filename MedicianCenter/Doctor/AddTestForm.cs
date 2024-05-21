@@ -19,20 +19,21 @@ namespace MedicianCenter.Doctor
 
         private void AddTestForm_Load(object sender, EventArgs e)
         {
-            UpdateResultsDataGridView();
+            UpdateTemplates();
         }
 
-        private void UpdateResultsDataGridView()
+        private void UpdateTemplates()
         {
-            //using (Database.Model.Context db =  new Database.Model.Context())
-            //{
-            //    var results = db.TestResult
-            //        .Where(x => x.TestId == lt.ID_list_tests)
-            //        .Include(x => x.list_tests)
-            //        .ToList();
+            using (Database.Model.Context db = new Database.Model.Context())
+            {
+                var templates = db.Templates.ToList();
 
-            //    ResultDataGridView.DataSource = results;
-            //}
+                TestTypeComboBox.DataSource = templates;
+                TestTypeComboBox.DisplayMember = "Name";
+                TestTypeComboBox.SelectedIndex = 0;
+
+                MinMaxLabel.Text = $"Минимум: {(TestTypeComboBox.SelectedItem as Template).Minimum}, максимум: {(TestTypeComboBox.SelectedItem as Template).Maximum}";
+            }
         }
 
 
@@ -40,7 +41,7 @@ namespace MedicianCenter.Doctor
         {
             list_tests lt = new list_tests
             {
-                name = TestNameTextBox.Text,
+                name = TestTypeComboBox.Text,
                 opisanie = TestDescriptionTextBox.Text,
                 ID_med_card = mc.ID_med_card
             };
@@ -54,6 +55,11 @@ namespace MedicianCenter.Doctor
 
             MessageBox.Show("Анализ успешно добавлен!");
             this.Close();
+        }
+
+        private void TestTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MinMaxLabel.Text = $"Минимум: {(TestTypeComboBox.SelectedItem as Template).Minimum}, максимум: {(TestTypeComboBox.SelectedItem as Template).Maximum}";
         }
     }
 }

@@ -31,14 +31,26 @@ namespace MedicianCenter.LabAssistant
         {
             using (Database.Model.Context db = new Database.Model.Context())
                 TestResultsDataGridView.DataSource = db.TestResults
+                    .Include(x => x.list_tests)
+                    .Include(x => x.Template)
                     .Where(x => x.TestId == test.ID_list_tests)
+                    .Select(x => new
+                    {
+                        x.Id,
+                        x.Key,
+                        x.Template.Minimum,
+                        x.Template.Maximum,
+                        x.Value,
+                        x.TestId
+                    })
                     .ToList();
 
             TestResultsDataGridView.Columns["Id"].Visible = false;
             TestResultsDataGridView.Columns["Key"].HeaderText = "Название";
             TestResultsDataGridView.Columns["Value"].HeaderText = "Значение";
+            TestResultsDataGridView.Columns["Maximum"].HeaderText = "Максимум";
+            TestResultsDataGridView.Columns["Minimum"].HeaderText = "Минимум";
             TestResultsDataGridView.Columns["TestId"].Visible = false;
-            TestResultsDataGridView.Columns["templateID"].Visible = false;
 
             TestResultsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }

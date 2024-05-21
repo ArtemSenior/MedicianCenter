@@ -30,15 +30,17 @@ namespace MedicianCenter.LabAssistant
             using (Database.Model.Context db = new Database.Model.Context())
                 TestsDataGridView.DataSource = db.list_tests
                     .Include(x => x.med_card)
+                    .Include(x => x.TestResults)
                     .ToList();
 
             TestsDataGridView.Columns["ID_list_tests"].Visible = false;
             TestsDataGridView.Columns["name"].HeaderText = "Название";
             TestsDataGridView.Columns["opisanie"].HeaderText = "Описание";
-            TestsDataGridView.Columns["ID_med_card"].Visible = false;
             TestsDataGridView.Columns["med_card"].Visible = false;
+            TestsDataGridView.Columns["TestResults"].Visible = false;
+            TestsDataGridView.Columns["ID_med_card"].Visible = false;
 
-            TestsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TestsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
         }
 
         private void LabAssistantMainForm_FormClosed(object sender, FormClosedEventArgs e)

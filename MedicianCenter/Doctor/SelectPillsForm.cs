@@ -116,5 +116,23 @@ namespace MedicianCenter.Doctor
                 m.Show(PillsDataGridView, new Point(e.X, e.Y));
             }
         }
+
+        private void AddNewPillButton_Click(object sender, EventArgs e)
+        {
+            using (Context db = new Context())
+            {
+                list_pills nPill = new list_pills();
+                nPill.name = PillNameTextBox.Text;
+                nPill.opisanie = PillDescriptionTextBox.Text;
+
+                var dbPill = db.list_pills.Add(nPill);
+                db.SaveChanges();
+
+                PillsComboBox.DataSource = db.list_pills
+                    .ToList();
+                PillsComboBox.DisplayMember = "name";
+                PillsComboBox.SelectedIndex = 0;
+            }
+        }
     }
 }

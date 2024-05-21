@@ -19,6 +19,10 @@ namespace MedicianCenter.Database.Model
 
         public int TestId { get; set; }
 
-        public int? TemplateId { get; set; }
+        public int TemplateId { get; set; }
+
+        public virtual list_tests list_tests { get; set; }
+
+        public virtual Template Template { get; set; }
     }
 }

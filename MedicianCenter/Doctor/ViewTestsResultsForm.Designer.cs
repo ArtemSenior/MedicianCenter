@@ -39,35 +39,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(289, 14);
+            this.label1.Location = new System.Drawing.Point(353, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 13);
+            this.label1.Size = new System.Drawing.Size(157, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Анализы для пациента";
             // 
             // PatientNameTextBox
             // 
-            this.PatientNameTextBox.Location = new System.Drawing.Point(292, 30);
+            this.PatientNameTextBox.Location = new System.Drawing.Point(356, 37);
+            this.PatientNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatientNameTextBox.Name = "PatientNameTextBox";
             this.PatientNameTextBox.ReadOnly = true;
-            this.PatientNameTextBox.Size = new System.Drawing.Size(229, 20);
+            this.PatientNameTextBox.Size = new System.Drawing.Size(339, 22);
             this.PatientNameTextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 14);
+            this.label2.Location = new System.Drawing.Point(17, 17);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 13);
+            this.label2.Size = new System.Drawing.Size(211, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Список назначенных анализов";
             // 
             // TestsComboBox
             // 
             this.TestsComboBox.FormattingEnabled = true;
-            this.TestsComboBox.Location = new System.Drawing.Point(15, 30);
+            this.TestsComboBox.Location = new System.Drawing.Point(20, 37);
+            this.TestsComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TestsComboBox.Name = "TestsComboBox";
-            this.TestsComboBox.Size = new System.Drawing.Size(161, 21);
+            this.TestsComboBox.Size = new System.Drawing.Size(268, 24);
             this.TestsComboBox.TabIndex = 3;
             this.TestsComboBox.SelectedIndexChanged += new System.EventHandler(this.TestsComboBox_SelectedIndexChanged);
             // 
@@ -75,23 +79,26 @@
             // 
             this.ResultsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ResultsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ResultsDataGridView.Location = new System.Drawing.Point(12, 57);
+            this.ResultsDataGridView.Location = new System.Drawing.Point(16, 70);
+            this.ResultsDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ResultsDataGridView.Name = "ResultsDataGridView";
             this.ResultsDataGridView.ReadOnly = true;
-            this.ResultsDataGridView.Size = new System.Drawing.Size(509, 370);
+            this.ResultsDataGridView.RowHeadersWidth = 51;
+            this.ResultsDataGridView.Size = new System.Drawing.Size(679, 455);
             this.ResultsDataGridView.TabIndex = 4;
             // 
             // ViewTestsResultsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 439);
+            this.ClientSize = new System.Drawing.Size(711, 540);
             this.Controls.Add(this.ResultsDataGridView);
             this.Controls.Add(this.TestsComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PatientNameTextBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewTestsResultsForm";

@@ -56,8 +56,9 @@ namespace MedicianCenter.Admin
             TestDataGridView.Columns["opisanie"].HeaderText = "Описание";
             TestDataGridView.Columns["ID_med_card"].Visible = false;
             TestDataGridView.Columns["med_card"].Visible = false;
+            TestDataGridView.Columns["TestResults"].Visible = false;
 
-            TestDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TestDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
         }
         private async void UpdatePillsDataGridView()
         {
@@ -70,7 +71,7 @@ namespace MedicianCenter.Admin
             PillsDataGridView.Columns["healing_list_pills"].Visible = false;
             PillsDataGridView.Columns["list_pills_list_tests"].Visible = false;
 
-            PillsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            PillsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
         }
 
         private async void UpdateMedCardsDataGridView()
@@ -99,8 +100,8 @@ namespace MedicianCenter.Admin
             MedCardsDataGridView.Columns["profession"].HeaderText = "Профессия";
             MedCardsDataGridView.Columns["healing_list_pills"].Visible = false;
             MedCardsDataGridView.Columns["istoria_priemov"].Visible = false;
-            MedCardsDataGridView.Columns["med_card_contra"].Visible = false;
             MedCardsDataGridView.Columns["list_tests"].Visible = false;
+            MedCardsDataGridView.Columns["med_card_contra"].Visible = false;
 
             MedCardsDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
@@ -280,5 +281,7 @@ namespace MedicianCenter.Admin
         {
             //Doctor.AddTestForm adf = new Doctor.AddTestForm();
         }
+
+        
     }
 }
